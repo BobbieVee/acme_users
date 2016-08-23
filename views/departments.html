@@ -1,1 +1,15 @@
-departments.html
+{% extends 'layout.html' %}
+
+{% block content %}
+<h3>Acme Departments</h3>
+<ul class='list-unstyled'>
+<li>Test</li>
+{% for department in departments %}
+	<li>{{department.name}}</li>
+{% endfor  %}
+	
+</ul>
+
+
+
+{% endblock %}

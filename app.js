@@ -6,7 +6,6 @@ var methodOverride = require('method-override');
 var models = require('./models');
 
 
-
 var app = express();
 
 app.use(express.static(path.join(__dirname, 'node_modules')));
@@ -27,9 +26,12 @@ app.get('/', function(req,res){
 	res.render('index', {title: 'Home'});
 })
 
-models.User.sync({})
+// var clean = 'force: true';
+var clean = '';
+
+models.User.sync({clean})
 .then(function(){
-	models.Department.sync({})
+	models.Department.sync({clean})
 })
 .then(function(){
 	app.listen(3001, function(){
